@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "in_stock": {
+      "type": "boolean",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "men",
+        "women",
+        "unisex"
+      ],
+      "default": "unisex",
+      "required": false
+    },
+    "discounts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::discount.discount",
+      "mappedBy": "products"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "carousel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::carousel.carousel",
+      "private": true,
+      "inversedBy": "products"
+    },
+    "product_images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    }
+  }
+}
