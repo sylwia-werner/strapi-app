@@ -1,57 +1,85 @@
-# 🚀 Getting started with Strapi
+# 🚀 Strapi Shop - Sylwia 54162
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Projekt opiera się na Strapi, posiada REST API do zarządzania sklepem z akcesoriami.
 
-### `develop`
+## Content Types
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+Projekt zawiera w sobie **Collection Types** takie jak:
+### Product
 
-```
-npm run develop
-# or
-yarn develop
-```
+- title (text)
+- description (text)
+- price (number)
+- in_stock (boolean)
+- gender (enumeration - men, women, unisex)
+- discounts (relacja n-n z promocjami)
+- reviews (relacja 1-n z opiniami)
+- slug (uuid)
+- product_images (media)
+- category (relacja n-1 z kategoriami)
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+![image](https://github.com/sylwia-werner/strapi-app/assets/97024171/4bfccaae-4ca3-4037-a3d3-d0593b5d66bb)
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+### Carousel
+
+- title (text)
+- description (text) 
+- products (relacja 1-n z produktami)
+
+![image](https://github.com/sylwia-werner/strapi-app/assets/97024171/8687cad9-a1bc-43ea-9069-b55ea085694b)
+
+---
+
+### Category
+
+- name (text)
+- products (relacja 1-n z produktami)
+
+![image](https://github.com/sylwia-werner/strapi-app/assets/97024171/f3fbbc47-b312-4178-92ea-5a648efaacd8)
+
+---
+
+### Discount
+
+- code (text)
+- amount_percentage (number)
+- products (relacja n-n z produktami)
+- expiration_date (datetime)
+- description (text)
+
+![image](https://github.com/sylwia-werner/strapi-app/assets/97024171/efd952a0-fbad-4e57-a531-c8c02ac91119)
+
+---
+
+### Review
+
+- rating (number)
+- comment (text)
+- product (relacja n-1 z produktami)
+- user (relacja n-1 z użytkownikami)
+
+![image](https://github.com/sylwia-werner/strapi-app/assets/97024171/b9b5caae-b84f-463c-a951-1670c87d6b4c)
+
+---
+
+### User
+
+- domyślne pola Strapi
+- reviews (relacja 1-n z opiniami)
+
+---
+
+Projekt zawiera także **Single Types**:
+
+### Hero Banner
+
+- title (text)
+- text (text)
+- pinned_products (relacja 1-n z produktami)
+
+![image](https://github.com/sylwia-werner/strapi-app/assets/97024171/ca3aba8a-ebc1-4c33-84b4-44a029f57763)
+
+
+
